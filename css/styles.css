@@ -345,9 +345,28 @@ p {
 }
 
 .social-link:hover {
-  background: var(--primary-gold);
-  color: var(--primary-black);
   transform: translateY(-2px);
+}
+
+/* Social link brand colors on hover */
+.social-link.social-facebook:hover {
+  background: #1877F2;
+  color: var(--white);
+}
+
+.social-link.social-tiktok:hover {
+  background: #000000;
+  color: var(--white);
+}
+
+.social-link.social-linkedin:hover {
+  background: #0A66C2;
+  color: var(--white);
+}
+
+.social-link.social-whatsapp:hover {
+  background: #25D366;
+  color: var(--white);
 }
 
 .main-nav {
@@ -1167,9 +1186,28 @@ p {
 }
 
 .footer-social-link:hover {
-  background: var(--primary-gold);
-  color: var(--primary-black);
   transform: translateY(-3px);
+}
+
+/* Footer social link brand colors on hover */
+.footer-social-link.social-facebook:hover {
+  background: #1877F2;
+  color: var(--white);
+}
+
+.footer-social-link.social-tiktok:hover {
+  background: #000000;
+  color: var(--white);
+}
+
+.footer-social-link.social-linkedin:hover {
+  background: #0A66C2;
+  color: var(--white);
+}
+
+.footer-social-link.social-whatsapp:hover {
+  background: #25D366;
+  color: var(--white);
 }
 
 .footer-title {
