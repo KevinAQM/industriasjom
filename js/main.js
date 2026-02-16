@@ -158,25 +158,72 @@ function initSmoothScroll() {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+
+            // Reveal elements after scroll completes
+            setTimeout(() => {
+                revealAllElements();
+            }, 600);
         });
+    });
+
+    // Handle initial hash in URL on page load
+    handleInitialHash();
+}
+
+/**
+ * Handle navigation to hash on page load
+ */
+function handleInitialHash() {
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            // Wait for page to fully render
+            setTimeout(() => {
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Reveal elements after scroll
+                setTimeout(() => {
+                    revealAllElements();
+                }, 600);
+            }, 100);
+        }
+    }
+}
+
+/**
+ * Force reveal all elements on the page
+ */
+function revealAllElements() {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(element => {
+        element.classList.add('active');
     });
 }
 
 /**
  * Product tabs functionality
+ * Only filters products when tabs have data-category attribute
+ * Ignores anchor navigation tabs (those with href starting with #)
  */
 function initProductTabs() {
-    const tabs = document.querySelectorAll('.product-tab');
+    // Only select tabs that have data-category attribute (filtering tabs)
+    const filterTabs = document.querySelectorAll('.product-tab[data-category]');
     const productCards = document.querySelectorAll('.product-card');
 
-    if (tabs.length === 0) return;
+    if (filterTabs.length === 0) return;
 
-    tabs.forEach(tab => {
+    filterTabs.forEach(tab => {
         tab.addEventListener('click', function () {
             const category = this.dataset.category;
 
-            // Update active tab
-            tabs.forEach(t => t.classList.remove('active'));
+            // Update active tab only among filter tabs
+            filterTabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
 
             // Filter products
