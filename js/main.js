@@ -69,11 +69,12 @@ function initMobileMenu() {
 }
 
 /**
- * Hero carousel with autoplay
+ * Hero carousel with autoplay and arrow navigation
  */
 function initHeroCarousel() {
     const slides = document.querySelectorAll('.hero-slide');
-    const indicators = document.querySelectorAll('.hero-indicator');
+    const prevArrow = document.querySelector('.hero-arrow-prev');
+    const nextArrow = document.querySelector('.hero-arrow-next');
 
     if (slides.length === 0) return;
 
@@ -84,9 +85,6 @@ function initHeroCarousel() {
         slides.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
         });
-        indicators.forEach((indicator, i) => {
-            indicator.classList.toggle('active', i === index);
-        });
         currentSlide = index;
     }
 
@@ -95,16 +93,42 @@ function initHeroCarousel() {
         showSlide(next);
     }
 
+    function prevSlide() {
+        const prev = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prev);
+    }
+
     // Auto advance slides
     let interval = setInterval(nextSlide, slideInterval);
 
-    // Click handlers for indicators
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', function () {
+    // Click handlers for arrows
+    if (prevArrow) {
+        prevArrow.addEventListener('click', function () {
             clearInterval(interval);
-            showSlide(index);
+            prevSlide();
             interval = setInterval(nextSlide, slideInterval);
         });
+    }
+
+    if (nextArrow) {
+        nextArrow.addEventListener('click', function () {
+            clearInterval(interval);
+            nextSlide();
+            interval = setInterval(nextSlide, slideInterval);
+        });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            clearInterval(interval);
+            prevSlide();
+            interval = setInterval(nextSlide, slideInterval);
+        } else if (e.key === 'ArrowRight') {
+            clearInterval(interval);
+            nextSlide();
+            interval = setInterval(nextSlide, slideInterval);
+        }
     });
 
     // Initialize first slide
