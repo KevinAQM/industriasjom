@@ -15,17 +15,32 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * Header scroll effect
+ * Header scroll effect - hides when reaching footer
  */
 function initHeaderScroll() {
     const header = document.querySelector('.header');
+    const footer = document.querySelector('.footer');
     if (!header) return;
 
     function handleScroll() {
+        // Add scrolled class when scrolling down
         if (window.scrollY > 100) {
             header.classList.add('header-scrolled');
         } else {
             header.classList.remove('header-scrolled');
+        }
+
+        // Hide header when footer is visible
+        if (footer) {
+            const footerRect = footer.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Check if footer is visible in viewport
+            if (footerRect.top < windowHeight) {
+                header.classList.add('header-hidden');
+            } else {
+                header.classList.remove('header-hidden');
+            }
         }
     }
 
@@ -119,7 +134,7 @@ function initHeroCarousel() {
     }
 
     // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') {
             clearInterval(interval);
             prevSlide();
