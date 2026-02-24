@@ -6,7 +6,7 @@
 :root {
   /* Colors - Black & Gold Premium Palette */
   --primary-gold: #D4AF37;
-  --primary-gold-light: #F4D160;
+  --primary-gold-light: #C5A028;
   --primary-gold-dark: #A8862A;
   --primary-black: #0D0D0D;
   --secondary-black: #1A1A1A;
@@ -14,7 +14,7 @@
 
   /* Neutrals */
   --white: #FFFFFF;
-  --off-white: #F8F8F8;
+  --off-white: #F5F3EF;
   --gray-100: #E8E8E8;
   --gray-200: #D0D0D0;
   --gray-300: #A0A0A0;
@@ -22,13 +22,13 @@
   --gray-500: #505050;
 
   /* Gradients */
-  --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 50%, var(--primary-gold) 100%);
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #C5A028 50%, #D4AF37 100%);
   --gradient-dark: linear-gradient(180deg, var(--primary-black) 0%, var(--secondary-black) 100%);
   --gradient-hero: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Outfit', 'Inter', sans-serif;
+  --font-display: 'DM Serif Display', 'Georgia', serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -42,16 +42,16 @@
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-lg: 12px;
   --radius-xl: 24px;
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
-  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.3);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.15);
 
   /* Transitions */
   --transition-fast: 0.15s ease;
@@ -172,7 +172,7 @@ p {
 }
 
 .section {
-  padding: var(--spacing-2xl) 0;
+  padding: 5rem 0;
 }
 
 .section-dark {
@@ -235,25 +235,23 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
+  padding: 0.75rem 1.75rem;
   font-size: 0.9375rem;
   font-weight: 600;
-  border-radius: var(--radius-full);
+  border-radius: 6px;
   transition: var(--transition-base);
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary {
   background: var(--gradient-gold);
   color: var(--primary-black);
-  box-shadow: var(--shadow-gold);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
 }
 
 .btn-secondary {
@@ -305,6 +303,7 @@ p {
   background: var(--primary-black);
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  display: none;
 }
 
 .top-bar-content {
@@ -380,6 +379,7 @@ p {
   background: rgba(13, 13, 13, 0.95);
   backdrop-filter: blur(20px);
   transition: var(--transition-base);
+  border-bottom: 1px solid #d4af37;
 }
 
 .nav-content {
@@ -468,8 +468,8 @@ p {
    Hero Section
    ========================================== */
 .hero {
-  min-height: 100vh;
-  padding-top: 120px;
+  min-height: 85vh;
+  padding-top: 80px;
   /* Espacio para el header fijo (top-bar + main-nav) */
   display: flex;
   align-items: center;
@@ -526,7 +526,7 @@ p {
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 1.5px;
   margin-bottom: var(--spacing-md);
   animation: fadeInUp 0.8s ease forwards;
 }
@@ -571,13 +571,13 @@ p {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   background: rgba(212, 175, 55, 0.9);
   border: none;
   border-radius: var(--radius-full);
   color: var(--primary-black);
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: var(--transition-base);
   display: flex;
@@ -785,8 +785,8 @@ p {
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .product-image {
@@ -934,7 +934,7 @@ p {
    Stats Section
    ========================================== */
 .stats-section {
-  background: var(--gradient-gold);
+  background: var(--primary-black);
   padding: var(--spacing-lg) 0;
 }
 
@@ -952,19 +952,19 @@ p {
   width: 70px;
   height: 70px;
   margin: 0 auto var(--spacing-sm);
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(212, 175, 55, 0.1);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.75rem;
-  color: var(--primary-black);
+  color: var(--primary-gold);
 }
 
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--primary-black);
+  color: var(--white);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -972,7 +972,7 @@ p {
 .stat-label {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--primary-black);
+  color: var(--gray-300);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1150,6 +1150,7 @@ p {
 .footer {
   background: var(--primary-black);
   color: var(--gray-300);
+  border-top: 1px solid #d4af37;
 }
 
 .footer-main {
@@ -1331,7 +1332,7 @@ p {
   font-size: 2rem;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   transition: var(--transition-base);
-  animation: pulse 2s infinite;
+  animation: pulse 4s infinite;
 }
 
 .whatsapp-btn:hover {
@@ -1368,7 +1369,7 @@ p {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(15px);
   }
 
   to {
@@ -1389,11 +1390,11 @@ p {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3);
   }
 
   70% {
-    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
   }
 
   100% {
@@ -1464,7 +1465,7 @@ p {
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(15px);
   transition: all 0.8s ease;
 }
 
@@ -1646,9 +1647,9 @@ p {
   }
 
   .hero-arrow {
-    width: 50px;
-    height: 50px;
-    font-size: 1.25rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 
   .hero-arrow-prev {
