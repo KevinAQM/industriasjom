@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
     initSmoothScroll();
     initProductTabs();
     initCounterAnimation();
+    initBackToTop();
+    initFaqAccordion();
+    initStickyProductTabs();
 });
 
 /**
@@ -90,15 +93,36 @@ function initHeroCarousel() {
     const slides = document.querySelectorAll('.hero-slide');
     const prevArrow = document.querySelector('.hero-arrow-prev');
     const nextArrow = document.querySelector('.hero-arrow-next');
+    const dotsContainer = document.getElementById('hero-dots');
 
     if (slides.length === 0) return;
 
     let currentSlide = 0;
     const slideInterval = 6000; // 6 seconds
 
+    // Generate dots
+    if (dotsContainer) {
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Ir al slide ' + (i + 1));
+            dot.addEventListener('click', function () {
+                clearInterval(interval);
+                showSlide(i);
+                interval = setInterval(nextSlide, slideInterval);
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.hero-dot') : [];
+
     function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
         });
         currentSlide = index;
     }
@@ -491,4 +515,100 @@ function initLightbox() {
             lightboxImage.src = galleryImages[currentIndex].src || galleryImages[currentIndex].querySelector('img').src;
         }
     });
+}
+
+/**
+ * Back to top button
+ */
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (!backToTopBtn) return;
+
+    function toggleBackToTop() {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('scroll', toggleBackToTop);
+    toggleBackToTop();
+
+    backToTopBtn.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+/**
+ * FAQ Accordion
+ */
+function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length === 0) return;
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (!question) return;
+
+        question.addEventListener('click', function () {
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            faqItems.forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('active');
+                    const otherBtn = other.querySelector('.faq-question');
+                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle('active', !isActive);
+            question.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
+        });
+    });
+}
+
+/**
+ * Sticky product tabs on productos.html
+ */
+function initStickyProductTabs() {
+    const tabsWrapper = document.getElementById('products-tabs-wrapper');
+    if (!tabsWrapper) return;
+
+    const placeholder = document.createElement('div');
+    placeholder.style.display = 'none';
+    tabsWrapper.parentNode.insertBefore(placeholder, tabsWrapper.nextSibling);
+
+    let originalTop = tabsWrapper.getBoundingClientRect().top + window.scrollY;
+    let isSticky = false;
+
+    function handleStickyTabs() {
+        // Recalculate if not sticky (position may shift due to reveals)
+        if (!isSticky) {
+            originalTop = tabsWrapper.getBoundingClientRect().top + window.scrollY;
+        }
+
+        if (window.scrollY >= originalTop) {
+            if (!isSticky) {
+                isSticky = true;
+                placeholder.style.display = 'block';
+                placeholder.style.height = tabsWrapper.offsetHeight + 'px';
+                tabsWrapper.classList.add('sticky');
+            }
+        } else {
+            if (isSticky) {
+                isSticky = false;
+                placeholder.style.display = 'none';
+                tabsWrapper.classList.remove('sticky');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleStickyTabs);
+    handleStickyTabs();
 }

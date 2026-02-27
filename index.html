@@ -156,6 +156,9 @@
       <i class="fas fa-chevron-right"></i>
     </button>
 
+    <!-- Hero Dots -->
+    <div class="hero-dots" id="hero-dots"></div>
+
     <div class="scroll-indicator">
       <span>Scroll</span>
       <i class="fas fa-chevron-down"></i>
@@ -168,7 +171,7 @@
       <div class="about-grid">
         <div class="about-image reveal">
           <div class="about-image-main">
-            <img src="images/ovino_1.png" alt="Instalaciones de Industrias JOM">
+            <img src="images/ovino_1.png" alt="Instalaciones de Industrias JOM" loading="lazy">
           </div>
           <div class="about-badge">
             <span class="about-badge-number">15+</span>
@@ -249,88 +252,73 @@
       </div>
 
       <!-- Product Categories Grid -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+      <div class="products-featured-grid">
 
         <!-- Tripas Naturales -->
-        <div class="reveal"
-          style="background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); transition: var(--transition-base);">
-          <div
-            style="height: 160px; background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-circle-notch" style="font-size: 3.5rem; color: var(--primary-black); opacity: 0.9;"></i>
+        <article class="product-featured-card reveal">
+          <div class="product-featured-icon product-featured-icon-gold">
+            <i class="fas fa-circle-notch"></i>
           </div>
-          <div style="padding: 2rem;">
-            <h3 style="margin-bottom: 1rem; color: var(--primary-black);">Tripas Naturales</h3>
-            <p style="color: var(--gray-400); margin-bottom: 1.5rem; line-height: 1.7;">
+          <div class="product-featured-content">
+            <h3>Tripas Naturales</h3>
+            <p>
               Tripas de origen animal de la más alta calidad para la elaboración de embutidos tradicionales y gourmet.
               Disponibles en calibres ovino, porcino y colágeno.
             </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span
-                style="background: rgba(212, 175, 55, 0.15); color: var(--primary-gold-dark); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Ovino</span>
-              <span
-                style="background: rgba(212, 175, 55, 0.15); color: var(--primary-gold-dark); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Porcino</span>
-              <span
-                style="background: rgba(212, 175, 55, 0.15); color: var(--primary-gold-dark); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Colágeno</span>
+            <div class="product-featured-tags">
+              <span class="product-featured-tag product-featured-tag-gold">Ovino</span>
+              <span class="product-featured-tag product-featured-tag-gold">Porcino</span>
+              <span class="product-featured-tag product-featured-tag-gold">Colágeno</span>
             </div>
-            <a href="productos.html#tripas-naturales" class="btn btn-primary" style="width: 100%;">
+            <a href="productos.html#tripas-naturales" class="btn btn-primary btn-full">
               Ver Tripas <i class="fas fa-arrow-right"></i>
             </a>
           </div>
-        </div>
+        </article>
 
         <!-- Máquinas -->
-        <div class="reveal"
-          style="background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); transition: var(--transition-base);">
-          <div
-            style="height: 160px; background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-cogs" style="font-size: 3.5rem; color: var(--primary-gold); opacity: 0.9;"></i>
+        <article class="product-featured-card reveal">
+          <div class="product-featured-icon product-featured-icon-dark">
+            <i class="fas fa-cogs"></i>
           </div>
-          <div style="padding: 2rem;">
-            <h3 style="margin-bottom: 1rem; color: var(--primary-black);">Máquinas</h3>
-            <p style="color: var(--gray-400); margin-bottom: 1.5rem; line-height: 1.7;">
+          <div class="product-featured-content">
+            <h3>Máquinas</h3>
+            <p>
               Maquinaria profesional para la industria cárnica: equipos de procesamiento,
               embutido y cocción diseñados para producción artesanal e industrial.
             </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span
-                style="background: rgba(13, 13, 13, 0.1); color: var(--gray-500); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Moledoras</span>
-              <span
-                style="background: rgba(13, 13, 13, 0.1); color: var(--gray-500); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Cutters</span>
-              <span
-                style="background: rgba(13, 13, 13, 0.1); color: var(--gray-500); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Hornos</span>
+            <div class="product-featured-tags">
+              <span class="product-featured-tag product-featured-tag-dark">Moledoras</span>
+              <span class="product-featured-tag product-featured-tag-dark">Cutters</span>
+              <span class="product-featured-tag product-featured-tag-dark">Hornos</span>
             </div>
-            <a href="productos.html#maquinas" class="btn btn-dark" style="width: 100%;">
+            <a href="productos.html#maquinas" class="btn btn-dark btn-full">
               Ver Máquinas <i class="fas fa-arrow-right"></i>
             </a>
           </div>
-        </div>
+        </article>
 
         <!-- Insumos -->
-        <div class="reveal"
-          style="background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); transition: var(--transition-base);">
-          <div
-            style="height: 160px; background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%); display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-flask" style="font-size: 3.5rem; color: white; opacity: 0.9;"></i>
+        <article class="product-featured-card reveal">
+          <div class="product-featured-icon product-featured-icon-brown">
+            <i class="fas fa-flask"></i>
           </div>
-          <div style="padding: 2rem;">
-            <h3 style="margin-bottom: 1rem; color: var(--primary-black);">Insumos</h3>
-            <p style="color: var(--gray-400); margin-bottom: 1.5rem; line-height: 1.7;">
+          <div class="product-featured-content">
+            <h3>Insumos</h3>
+            <p>
               Insumos especializados para la elaboración de embutidos: condimentos,
               aglutinantes y proteínas que garantizan sabor, textura y calidad.
             </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-              <span
-                style="background: rgba(139, 69, 19, 0.15); color: #8B4513; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Condimentos</span>
-              <span
-                style="background: rgba(139, 69, 19, 0.15); color: #8B4513; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Almidón</span>
-              <span
-                style="background: rgba(139, 69, 19, 0.15); color: #8B4513; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Proteínas</span>
+            <div class="product-featured-tags">
+              <span class="product-featured-tag product-featured-tag-brown">Condimentos</span>
+              <span class="product-featured-tag product-featured-tag-brown">Almidón</span>
+              <span class="product-featured-tag product-featured-tag-brown">Proteínas</span>
             </div>
-            <a href="productos.html#insumos" class="btn" style="width: 100%; background: #8B4513; color: white;">
+            <a href="productos.html#insumos" class="btn btn-brown btn-full">
               Ver Insumos <i class="fas fa-arrow-right"></i>
             </a>
           </div>
-        </div>
+        </article>
       </div>
 
       <div style="text-align: center; margin-top: 3rem;" class="reveal">
@@ -422,27 +410,24 @@
         </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+      <div class="contact-quick-grid">
         <a href="https://wa.me/51974353087?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20los%20productos%20de%20Industrias%20JOM."
-          target="_blank" class="reveal"
-          style="background: #25D366; padding: 2rem; border-radius: 12px; text-align: center; color: white; transition: var(--transition-base); text-decoration: none;">
-          <i class="fab fa-whatsapp" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-          <h3 style="color: white; margin-bottom: 0.5rem;">WhatsApp</h3>
-          <p style="margin: 0; opacity: 0.9;">Respuesta inmediata en horario laboral</p>
+          target="_blank" class="contact-quick-card contact-quick-whatsapp reveal">
+          <i class="fab fa-whatsapp contact-quick-icon"></i>
+          <h3>WhatsApp</h3>
+          <p>Respuesta inmediata en horario laboral</p>
         </a>
 
-        <a href="tel:+51974353087" class="reveal"
-          style="background: var(--primary-black); padding: 2rem; border-radius: 12px; text-align: center; color: white; transition: var(--transition-base); text-decoration: none;">
-          <i class="fas fa-phone-alt" style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-gold);"></i>
-          <h3 style="color: white; margin-bottom: 0.5rem;">Llamar Ahora</h3>
-          <p style="margin: 0; opacity: 0.9;">+51 974 353 087</p>
+        <a href="tel:+51974353087" class="contact-quick-card contact-quick-phone reveal">
+          <i class="fas fa-phone-alt contact-quick-icon"></i>
+          <h3>Llamar Ahora</h3>
+          <p>+51 974 353 087</p>
         </a>
 
-        <a href="mailto:informes@industriasjom.com" class="reveal"
-          style="background: var(--gradient-gold); padding: 2rem; border-radius: 12px; text-align: center; color: var(--primary-black); transition: var(--transition-base); text-decoration: none;">
-          <i class="fas fa-envelope" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-          <h3 style="color: var(--primary-black); margin-bottom: 0.5rem;">Correo</h3>
-          <p style="margin: 0; opacity: 0.8;">informes@industriasjom.com</p>
+        <a href="mailto:informes@industriasjom.com" class="contact-quick-card contact-quick-email reveal">
+          <i class="fas fa-envelope contact-quick-icon"></i>
+          <h3>Correo</h3>
+          <p>informes@industriasjom.com</p>
         </a>
       </div>
     </div>
@@ -456,7 +441,7 @@
           <!-- Brand Column -->
           <div class="footer-brand">
             <div class="footer-logo">
-              <img src="images/logo_jom.png" alt="Industrias JOM Logo">
+              <img src="images/logo_jom.png" alt="Industrias JOM Logo" loading="lazy">
               <span class="footer-logo-text">Industrias <span>JOM</span></span>
             </div>
             <p class="footer-description">
@@ -546,6 +531,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==================== BACK TO TOP BUTTON ==================== -->
+  <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
   <!-- ==================== WHATSAPP FLOATING BUTTON ==================== -->
   <div class="whatsapp-float">
